@@ -48,6 +48,8 @@ else:
     with open(cache_path, "w") as f:
         json.dump(data, f, indent=2)
 
+    print(date_str)
+
 
 prices = data['instanceList'][0]['curveData']['periodList'][0]['pointMap']
 curhour = datetime.now(tz=tz_ams).hour
