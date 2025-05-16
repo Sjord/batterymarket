@@ -4,6 +4,7 @@ from zoneinfo import ZoneInfo
 import json
 import subprocess
 import os
+from math import sqrt
 
 tz_ams = ZoneInfo("Europe/Amsterdam")
 
@@ -58,7 +59,7 @@ pricelist = [float(p[0]) for p in prices.values()]
 maxprice = max(pricelist)
 minprice = min(pricelist)
 ratio = (curprice - minprice) / (maxprice - minprice)
-batterylevel = int(100 - 50 * ratio)
+batterylevel = int(100 - 50 * sqrt(ratio))
 
 print(f"hour: {curhour} price: {curprice}, min: {minprice}, max: {maxprice}, ratio: {ratio}, batterylevel: {batterylevel}")
 subprocess.run(['/usr/local/bin/bclm', 'write', str(batterylevel)])
