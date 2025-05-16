@@ -1,0 +1,20 @@
+[project]
+name = "batterymarket"
+version = "0.1.0"
+description = "Fetches ENTSO-E electricity prices and adjusts battery level accordingly."
+authors = [
+    { name = "Sjoerd Langkemper", email = "sjoerd-github@linuxonly.nl" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+
+dependencies = [
+    "requests",
+]
+
+[project.scripts]
+batterymarket = "batterymarket.energyprice:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
