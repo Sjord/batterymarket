@@ -5,6 +5,8 @@ import json
 import subprocess
 import os
 from math import sqrt
+from pathlib import Path
+
 
 
 def main():
@@ -14,7 +16,9 @@ def main():
     tomorrow = today + timedelta(days=1)
 
     date_str = today.strftime("%Y-%m-%d")
-    cache_path = f"/Users/sjoerd/dev/batterymarket/prices/{date_str}.json"
+    script_path = Path(__file__).resolve()
+    project_path = script_path.parent.parent.parent
+    cache_path = project_path / f"prices/{date_str}.json"
 
     if os.path.exists(cache_path):
         with open(cache_path, "r") as f:
