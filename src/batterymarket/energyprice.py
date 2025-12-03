@@ -27,7 +27,7 @@ def main():
         from_time = today.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%S.000Z")
         to_time = tomorrow.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
-        url = "https://newtransparency.entsoe.eu/market/energyPrices/load"
+        url = "https://transparency.entsoe.eu/market/energyPrices/load"
         payload = {
             "areaList": ["BZN|10YNL----------L"],
             "dateTimeRange": {
